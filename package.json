@@ -6,6 +6,10 @@
   "private": true,
   "license": "UNLICENSED",
   "scripts": {
+    "migration:create": "npx typeorm migration:create -n CoffeeRefactor",
+    "migration:run": "npx typeorm migration:run",
+    "migration:revert": "npx typeorm migration:revert",
+    "migration:generate": "npx typeorm migration:generate -n SchemaSync",
     "prebuild": "rimraf dist",
     "build": "nest build",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
