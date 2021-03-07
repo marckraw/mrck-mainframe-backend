@@ -31,18 +31,22 @@ export class CoffeesController {
   }
 
   @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.coffeesService.findOne(id);
+  findOne(@Param('id') id: number) {
+    console.log(typeof id);
+    return this.coffeesService.findOne('' + id);
   }
 
   @Post()
   // @HttpCode(HttpStatus.GONE) // you can add custom http status
   create(@Body() createCoffeeDto: CreateCoffeeDto) {
+    console.log(createCoffeeDto instanceof CreateCoffeeDto);
     return this.coffeesService.create(createCoffeeDto);
   }
 
   @Patch(':id')
   update(@Param('id') id: string, @Body() updateCoffeeDto: UpdateCoffeeDto) {
+    console.log('id: ', id);
+    console.log('body: ', updateCoffeeDto);
     return this.coffeesService.update(id, updateCoffeeDto);
   }
 
